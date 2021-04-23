@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 import numpy as n
-from os import path
+import os
 
 
 def get_form_factors():
@@ -10,8 +10,7 @@ def get_form_factors():
     sourced from the page at
     http://lamp.tu-graz.ac.at/~hadley/ss1/crystaldiffraction/atomicformfactors/formfactors.php
     """
-    form_factors_file = '/'.join(path.realpath(__file__).split('/')[:-1]) \
-        + '/form_factors.csv'
+    form_factors_file = os.path.join(os.getcwd(), 'lattice/form_factors.csv')
     constants = list(n.loadtxt(form_factors_file,
                                skiprows=1,
                                delimiter=',',
